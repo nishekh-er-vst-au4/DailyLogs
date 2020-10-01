@@ -12,8 +12,16 @@
         <form action="{{route('todo.update',$todo->id)}}" method="post" class="py-5">
             @csrf
             @method('patch')
-            <input type="text" name="title" value="{{$todo->title}}" class="px-2 py-2 border rounded">
-            <input type="submit" value="Update" class="p-2 border cursor-pointer rounded">
+            <div class="py-1">
+            <input type="text" name="title" class="px-2 py-2 border rounded" value="{{$todo->title}}" placeholder="Todo">
+            </div>
+            <div class="py-1">
+            <textarea name="Description" class="p-2 rounded border" placeholder="Description">
+                {{$todo->Description}}</textarea>
+            </div>
+            <div class="py-1">
+            <input type="submit" value="Create" class="p-2 border rounded cursor-pointer">
+            </div>
         </form>
 
         <div>

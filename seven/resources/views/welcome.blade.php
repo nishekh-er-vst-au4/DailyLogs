@@ -8,6 +8,7 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
 
         <!-- Styles -->
         <style>
@@ -68,7 +69,10 @@
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
-                        <a href="{{ url('/home') }}">Profile</a>
+                        <a href="{{route('todo.index')}}">
+                            <span class="fas fa-clipboard-list text-black-400 cursor-pointer " style="font-size:20px"></span></a>
+                        <a href="{{ url('/home') }}">
+                        <span class="fas fa-user text-black-400 cursor-pointer " style="font-size:20px"></span></a>
                     @else
                         <a href="{{ route('login') }}">Login</a>
 
@@ -80,11 +84,17 @@
             @endif
 
             <div class="content">
+               @guest
                 <div class="title">
                     Register or Login to create your todos
                 </div>
+                 @endguest
 
-                
+                 @auth
+                 <div class="title">
+                    Welcome to Todo App
+                </div>
+                @endauth
             </div>
         </div>
     </body>

@@ -1,4 +1,4 @@
-@if($todo->completed)
+     @if($todo->completed)
         <span class="fas fa-check text-green-400 px-2 cursor-pointer " 
         onclick="event.preventDefault();document.getElementById('form-incomplete-{{$todo->id}}').submit()"></span>
         <form style="display:none" id="{{'form-incomplete-'.$todo->id}}" method="post" 

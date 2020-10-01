@@ -21,6 +21,10 @@ class TodoController extends Controller
         return view('todos.index',compact('todos'));
     }
 
+    public function show(Todo $todo){
+        return view('todos.show',compact('todo'));
+    }
+
     public function create(){
         return view('todos.create');
     }
@@ -37,7 +41,7 @@ class TodoController extends Controller
     }
 
     public function update(TodoCreateRequest $request, Todo $todo){
-       $todo->update(['title'=>$request->title]);
+       $todo->update(['title'=>$request->title,'Description'=>$request->Description]);
        return redirect(route('todo.index'))->with('success','updated!');
     }
 
